@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Omar Alabdalla - Computer Science and Data Science student with expertise in programming, AI, and software development. View my projects, experience, and skills.">
+    <meta property="og:title" content="Omar Alabdalla - Portfolio">
+    <meta property="og:description" content="Computer Science and Data Science student showcasing projects in AI, software development, and engineering solutions.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Omar Alabdalla - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #e4e4e7;
+            background: #1a1a1a;
+            letter-spacing: -0.02em;
+            font-size: 16px;
+            font-feature-settings: "liga" 1, "kern" 1, "calt" 1;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: #2a2a2a;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #404040;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #22c55e;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.08"><polygon points="0,0 1000,80 1000,100 0,100"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.95);
+            margin-bottom: 35px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.15);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.08) translateY(-4px);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-img:hover::before {
+            opacity: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            opacity: 0.85;
+            font-weight: 400;
+            color: #a1a1aa;
+        }
+
+        .hero .summary {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            line-height: 1.75;
+            font-weight: 300;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            margin: 15px 10px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 10;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: #22c55e;
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+            border: 1px solid #22c55e;
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            color: white;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            background: #16a34a;
+            color: #ffffff;
+            border-color: #16a34a;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .contact-info {
+            background: #2a2a2a;
+            padding: 35px 0;
+            text-align: center;
+            border-top: 1px solid #404040;
+            border-bottom: 1px solid #404040;
+        }
+
+        .contact-item {
+            display: inline-block;
+            margin: 0 35px;
+            font-weight: 600;
+            color: #d1d5db;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+
+        .contact-item:hover {
+            color: #22c55e;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(64, 64, 64, 0.3) 50%, transparent 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            position: relative;
+            line-height: 1.2;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.6) 50%, transparent 100%);
+            border-radius: 1px;
+        }
+
+        .card {
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid #404040;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #22c55e;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .card:hover {
+            border-color: #22c55e;
+            transform: translateY(-4px);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .card-subtitle {
+            font-size: 1.1rem;
+            color: #22c55e;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .card-meta {
+            color: #9ca3af;
+            margin-bottom: 22px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .card-content {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        .card-content strong {
+            color: #ffffff;
+            font-weight: 650;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .tag {
+            display: inline-block;
+            background: #22c55e;
+            color: #ffffff;
+            padding: 8px 16px;
+            margin: 6px 8px 6px 0;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .tag:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        .tag:hover::before {
+            left: 100%;
+        }
+
+        .skill-tag {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #d1d5db;
+        }
+
+        .list li:before {
+            content: "•";
+            color: #22c55e;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .bg-alt {
+            background: #1f1f1f;
+            border-top: 1px solid #404040;
+            border-bottom: 1px solid #404040;
+            position: relative;
+        }
+
+        .bg-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(52, 211, 153, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: #a1a1aa;
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid #404040;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .hero .summary {
+                font-size: 1.1rem;
+                margin: 0 auto 30px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+
+            .card {
+                padding: 30px 20px;
+                margin-bottom: 20px;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+            }
+
+            .card-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-item {
+                display: block;
+                margin: 15px 0;
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 14px 30px;
+                font-size: 0.95rem;
+                margin: 10px 5px;
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="/assets/profile.jpg" alt="Omar Alabdalla" class="profile-img">
+            <h1>Omar Alabdalla</h1>
+            <p class="subtitle">MSc Data Science & AI | Computer Science Engineer</p>
+            <p class="summary">Accomplished Computer Science and Engineering graduate pursuing advanced studies in Data Science and AI at Chalmers University of Technology. Demonstrated expertise in software development, machine learning, and educational leadership with 9+ years of professional experience across multiple sectors.</p>
+            <div>
+                <a href="mailto:Omar.alabdalla87@yahoo.com" class="btn btn-primary">Contact Me</a>
+                <a href="https://www.linkedin.com/in/omar-alabdalla-4b5571148" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-item">📞 +46 704 80 25 32</div>
+            <div class="contact-item">📧 omar.alabdalla87@yahoo.com</div>
+            <div class="contact-item">📍 Gothenburg, Sweden</div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 class="card-title">Master of Science in Data Science and AI</h3>
+                    <p class="card-subtitle">Chalmers University of Technology, Gothenburg</p>
+                    <p class="card-meta">📅 August 2024 – Present (Expected graduation: June 2026)</p>
+                    <div class="card-content">
+                        <p><strong>Focus Areas:</strong> Machine Learning, Deep Learning, Statistical Analysis, Computer Vision</p>
+                        <p><strong>Selected Coursework:</strong></p>
+                        <div>
+                            <span class="tag">Introduction to Data Science and AI</span>
+                            <span class="tag">Nonlinear Optimization</span>
+                            <span class="tag">Image Processing</span>
+                            <span class="tag">Advanced Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Bachelor of Science in Computer Science and Engineering</h3>
+                    <p class="card-subtitle">Chalmers University of Technology, Gothenburg</p>
+                    <p class="card-meta">📅 August 2021 - June 2024 | <strong>GPA: 4.4/5.0</strong></p>
+                    <div class="card-content">
+                        <p><strong>Academic Excellence:</strong> Teaching Assistant for Data Structures & Algorithms and Parallel Programming</p>
+                        <p><strong>Core Competencies:</strong></p>
+                        <div>
+                            <span class="tag">Linear Algebra</span>
+                            <span class="tag">Object-Oriented Programming</span>
+                            <span class="tag">Data Structures & Algorithms</span>
+                            <span class="tag">Parallel Programming</span>
+                            <span class="tag">Control Theory</span>
+                            <span class="tag">Software Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3 class="card-title">System Developer</h3>
+                    <p class="card-subtitle">Chalmers University of Technology</p>
+                    <p class="card-meta">📅 June 2025 - September 2025 | Gothenburg, Sweden</p>
+                    <div class="card-content">
+                        <p><strong>AI Implementation Research:</strong></p>
+                        <ul class="list">
+                            <li>Exploring advanced AI implementations and integration strategies for university systems</li>
+                            <li>Contributing to research and development of AI-powered solutions in academic environments</li>
+                            <li>Collaborating with faculty and technical teams on innovative AI applications</li>
+                            <li>Applying Data Science and AI expertise in real-world university technology projects</li>
+                        </ul>
+                        <p><strong>Technical Focus:</strong></p>
+                        <ul class="list">
+                            <li>Leveraging Master's program knowledge in practical AI system development</li>
+                            <li>Bridging academic research with practical implementation solutions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Transport Officer</h3>
+                    <p class="card-subtitle">Swedish Prison and Probation Service - National Transport Unit (NTE)</p>
+                    <p class="card-meta">📅 Summer 2023 & 2024 | Gothenburg, Sweden</p>
+                    <div class="card-content">
+                        <p><strong>Key Responsibilities:</strong></p>
+                        <ul class="list">
+                            <li>Executed secure transportation protocols for high-risk individuals across judicial facilities</li>
+                            <li>Conducted professional surveillance operations during court proceedings and medical appointments</li>
+                            <li>Maintained strict adherence to safety and security regulations in critical situations</li>
+                        </ul>
+                        <p><strong>Professional Development:</strong></p>
+                        <ul class="list">
+                            <li>Enhanced crisis management and situational awareness capabilities</li>
+                            <li>Developed expertise in legal procedural compliance and inter-agency coordination</li>
+                            <li>Strengthened conflict resolution and team collaboration skills in high-pressure environments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Mathematics Mentor</h3>
+                    <p class="card-subtitle">Intize Educational Initiative</p>
+                    <p class="card-meta">📅 October 2023 - June 2024 | Remote</p>
+                    <div class="card-content">
+                        <p><strong>Educational Leadership:</strong></p>
+                        <ul class="list">
+                            <li>Designed and delivered personalized mathematics instruction for high school students</li>
+                            <li>Developed innovative problem-solving methodologies to enhance student comprehension</li>
+                            <li>Provided targeted exam preparation strategies, resulting in improved student performance</li>
+                            <li>Mentored students in analytical thinking and mathematical reasoning skills</li>
+                        </ul>
+                        <p><strong>Impact & Contribution:</strong></p>
+                        <ul class="list">
+                            <li>Volunteered expertise to support educational equity through non-profit mathematics program</li>
+                            <li>Built confidence in students through structured learning approaches and positive reinforcement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Study Counselor & Native Language Instructor</h3>
+                    <p class="card-subtitle">Ånge Municipality, Västernorrland County</p>
+                    <p class="card-meta">📅 August 2015 – Present (9+ years) | Sweden</p>
+                    <div class="card-content">
+                        <p><strong>Academic Support & Guidance:</strong></p>
+                        <ul class="list">
+                            <li>Provided comprehensive academic counseling and subject-specific tutoring across multiple disciplines</li>
+                            <li>Designed individualized learning plans to ensure optimal student progress and achievement</li>
+                            <li>Delivered native language instruction to enhance students' linguistic and cultural competencies</li>
+                            <li>Collaborated with educational teams to implement effective student support strategies</li>
+                        </ul>
+                        <p><strong>Professional Excellence:</strong></p>
+                        <ul class="list">
+                            <li>Developed advanced pedagogical expertise in curriculum design and instructional methodology</li>
+                            <li>Implemented innovative teaching approaches resulting in measurable improvements in student engagement</li>
+                            <li>Established long-term educational partnerships supporting diverse student populations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="card-title">Automatic Sun Tracking Solution for Optimal Energy Production</h3>
+                    <div class="card-content">
+                        <p>Bachelor's Thesis project developing a dual-axis solar tracker system to automatically follow the sun for optimal photovoltaic energy production.</p>
+
+                        <h4>Technologies:</h4>
+                        <div>
+                            <span class="tag">Microcontroller Programming</span>
+                            <span class="tag">Sensor Integration</span>
+                            <span class="tag">Solar Energy Systems</span>
+                            <span class="tag">System Calibration</span>
+                        </div>
+
+                        <h4>Key Achievements:</h4>
+                        <ul class="list">
+                            <li>Designed system for precise horizontal and vertical adjustments to maximize sun exposure</li>
+                            <li>Improved energy efficiency through automated tracking</li>
+                            <li>Analyzed and compared energy output against stationary solar panels</li>
+                            <li>Addressed technical challenges related to sensor accuracy and microcontroller integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Volvo Cars: Waste Data Visualization and Reporting Project</h3>
+                    <div class="card-content">
+                        <p>Collaborated with Volvo Cars on waste management optimization at Torslanda facility.</p>
+
+                        <h4>Technologies:</h4>
+                        <div>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">KPI Development</span>
+                            <span class="tag">Interactive Mapping</span>
+                        </div>
+
+                        <h4>Key Achievements:</h4>
+                        <ul class="list">
+                            <li>Applied innovative visualizations to enhance sustainability practices</li>
+                            <li>Developed interactive maps for waste management</li>
+                            <li>Created targeted improvement reports</li>
+                            <li>Enhanced Key Performance Indicators (KPIs) for sustainability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Security System Project</h3>
+                    <div class="card-content">
+                        <p>Developed a comprehensive security system using MD-407 microcontrollers connected via Controller Area Network (CAN-bus).</p>
+
+                        <h4>Technologies:</h4>
+                        <div>
+                            <span class="tag">Microcontroller Programming</span>
+                            <span class="tag">CAN-bus Protocol</span>
+                            <span class="tag">Network Communication</span>
+                            <span class="tag">Security Systems</span>
+                        </div>
+
+                        <h4>Key Achievements:</h4>
+                        <ul class="list">
+                            <li>Designed central unit and multiple peripherals</li>
+                            <li>Demonstrated proficiency in microcontroller-based device communication</li>
+                            <li>Created effective security and locking mechanism</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 class="card-title">Programming Languages</h3>
+                    <div class="card-content">
+                        <span class="tag skill-tag">Python</span>
+                        <span class="tag skill-tag">Java</span>
+                        <span class="tag skill-tag">C</span>
+                        <span class="tag skill-tag">C#</span>
+                        <span class="tag skill-tag">C++</span>
+                        <span class="tag skill-tag">VHDL</span>
+                        <span class="tag skill-tag">Assembly</span>
+                        <span class="tag skill-tag">Matlab</span>
+                        <span class="tag skill-tag">Haskell</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Tools & Technologies</h3>
+                    <div class="card-content">
+                        <span class="tag skill-tag">GitHub</span>
+                        <span class="tag skill-tag">Fusion 360</span>
+                        <span class="tag skill-tag">3D Printing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Languages</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="card-title">Swedish</h3>
+                    <div class="card-content">
+                        <p>Fluent in speaking, reading, and writing</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">English</h3>
+                    <div class="card-content">
+                        <p>Proficient in spoken and written communication</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Arabic</h3>
+                    <div class="card-content">
+                        <p>Native language, fluent in speaking and writing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">References</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="card-title">PhD Håkan Burden</h3>
+                    <p class="card-subtitle">Chalmers University of Technology</p>
+                    <div class="card-content">
+                        <p>📞 031-7724812</p>
+                        <p>📧 hakan.bruden@ri.se</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Paul Pakkala</h3>
+                    <p class="card-subtitle">Rektor/Ånge Kommun</p>
+                    <div class="card-content">
+                        <p>📞 0761380642</p>
+                        <p>📧 paul.pakkala@ange.se</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Katrinne Bylund</h3>
+                    <p class="card-subtitle">Rektor Gnarps skola/Nordanstigs kommun</p>
+                    <div class="card-content">
+                        <p>📞 076–2005212</p>
+                        <p>📧 katrinne@live.se</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Omar Alabdalla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for any future navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation for cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html><!-- Cache buster: 1755118158 -->
