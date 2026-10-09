@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Omar Alabdalla - Computer Science and Data Science student with expertise in programming, AI, and software development. View my projects, experience, and skills.">
-    <meta property="og:title" content="Omar Alabdalla - Portfolio">
-    <meta property="og:description" content="Computer Science and Data Science student showcasing projects in AI, software development, and engineering solutions.">
+    <meta name="description" content="Omar Alabdalla - MSc Data Science & AI student at Chalmers University. 9+ years experience in software development, machine learning, and educational leadership. View projects including solar tracking systems and Volvo collaboration.">
+    <meta name="keywords" content="Omar Alabdalla, Data Science, AI, Machine Learning, Chalmers University, Software Development, Python, Java, Solar Energy, Portfolio">
+    <meta name="author" content="Omar Alabdalla">
+    <meta property="og:title" content="Omar Alabdalla - Data Science & AI Portfolio">
+    <meta property="og:description" content="MSc Data Science & AI student showcasing 9+ years of experience in software development, machine learning, and innovative engineering solutions.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:3000">
+    <meta property="og:image" content="/assets/profile.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Omar Alabdalla - Data Science & AI Portfolio">
+    <meta name="twitter:description" content="MSc Data Science & AI student with 9+ years experience in software development and machine learning.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/profile.jpg" as="image">
     <title>Omar Alabdalla - Portfolio</title>
     <style>
         * {
@@ -17,7 +25,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.7;
@@ -30,13 +38,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         .hero {
             background: #2a2a2a;
             color: white;
@@ -45,7 +53,7 @@
             position: relative;
             border-bottom: 1px solid #404040;
         }
-
+        
         .hero::after {
             content: '';
             position: absolute;
@@ -55,7 +63,7 @@
             height: 3px;
             background: #22c55e;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -66,7 +74,7 @@
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.08"><polygon points="0,0 1000,80 1000,100 0,100"/></svg>') no-repeat bottom;
             background-size: cover;
         }
-
+        
         .profile-img {
             width: 200px;
             height: 200px;
@@ -79,7 +87,7 @@
             position: relative;
             z-index: 10;
         }
-
+        
         .profile-img::before {
             content: '';
             position: absolute;
@@ -88,21 +96,21 @@
             right: -12px;
             bottom: -12px;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+            background: transparent;
             z-index: -1;
             opacity: 0;
             transition: opacity 0.6s ease;
         }
-
+        
         .profile-img:hover {
             transform: scale(1.08) translateY(-4px);
             box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.2);
         }
-
+        
         .profile-img:hover::before {
             opacity: 1;
         }
-
+        
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
@@ -111,7 +119,7 @@
             color: #ffffff;
             line-height: 1.2;
         }
-
+        
         .hero .subtitle {
             font-size: 1.3rem;
             margin-bottom: 15px;
@@ -120,6 +128,17 @@
             color: #a1a1aa;
         }
 
+        .cursor {
+            animation: blink 1s infinite;
+            color: #22c55e;
+            font-weight: 300;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
         .hero .summary {
             font-size: 1.2rem;
             max-width: 800px;
@@ -130,7 +149,7 @@
             position: relative;
             z-index: 10;
         }
-
+        
         .btn {
             display: inline-block;
             padding: 16px 40px;
@@ -144,37 +163,39 @@
             z-index: 10;
             letter-spacing: 0.5px;
         }
-
+        
         .btn-primary {
             background: #22c55e;
             color: #ffffff;
             box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
             border: 1px solid #22c55e;
         }
-
+        
         .btn-outline {
             border: 2px solid rgba(255, 255, 255, 0.9);
             color: white;
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(12px);
         }
-
-        .btn:hover {
+        
+        .btn:hover, .btn:focus {
             transform: translateY(-3px);
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            outline: 2px solid #22c55e;
+            outline-offset: 2px;
         }
-
+        
         .btn-primary:hover {
             background: #16a34a;
             color: #ffffff;
             border-color: #16a34a;
         }
-
+        
         .btn-outline:hover {
             background: rgba(255, 255, 255, 0.18);
             border-color: rgba(255, 255, 255, 0.95);
         }
-
+        
         .contact-info {
             background: #2a2a2a;
             padding: 35px 0;
@@ -182,7 +203,7 @@
             border-top: 1px solid #404040;
             border-bottom: 1px solid #404040;
         }
-
+        
         .contact-item {
             display: inline-block;
             margin: 0 35px;
@@ -191,26 +212,15 @@
             font-size: 1.1rem;
             transition: color 0.2s ease;
         }
-
+        
         .contact-item:hover {
             color: #22c55e;
         }
-
+        
         .section {
             padding: 100px 0;
-            position: relative;
         }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(64, 64, 64, 0.3) 50%, transparent 100%);
-        }
-
+        
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -221,7 +231,7 @@
             position: relative;
             line-height: 1.2;
         }
-
+        
         .section-title::before {
             content: '';
             position: absolute;
@@ -234,7 +244,7 @@
             border-radius: 3px;
             opacity: 0.8;
         }
-
+        
         .section-title::after {
             content: '';
             position: absolute;
@@ -243,38 +253,25 @@
             transform: translateX(-50%);
             width: 120px;
             height: 2px;
-            background: linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.6) 50%, transparent 100%);
+            background: transparent;
             border-radius: 1px;
         }
-
+        
         .card {
             background-color: #1f1f1f;
             border-radius: 12px;
             padding: 40px;
             margin-bottom: 40px;
             border: 1px solid #404040;
+            border-top: 4px solid #22c55e;
             transition: all 0.3s ease;
-            position: relative;
         }
-
-
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: #22c55e;
-            border-radius: 12px 12px 0 0;
-        }
-
-        .card:hover {
+        
+        .card:hover, .card:focus-within {
             border-color: #22c55e;
             transform: translateY(-4px);
         }
-
+        
         .card-title {
             font-size: 1.5rem;
             font-weight: 600;
@@ -283,7 +280,7 @@
             letter-spacing: -0.01em;
             line-height: 1.3;
         }
-
+        
         .card-subtitle {
             font-size: 1.1rem;
             color: #22c55e;
@@ -291,37 +288,441 @@
             margin-bottom: 12px;
             letter-spacing: -0.01em;
         }
-
+        
         .card-meta {
             color: #9ca3af;
             margin-bottom: 22px;
             font-size: 1rem;
             font-weight: 500;
         }
-
+        
         .card-content {
             color: #d1d5db;
             line-height: 1.7;
         }
-
+        
         .card-content strong {
             color: #ffffff;
             font-weight: 650;
         }
-
+        
         .grid {
             display: grid;
             gap: 30px;
         }
-
+        
         .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(500px, 100%), 1fr));
         }
-
+        
         .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
         }
 
+        .skill-item {
+            margin-bottom: 24px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .skill-percent {
+            font-weight: 500;
+            color: #22c55e;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            background: #2a2a2a;
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+            border: 1px solid #404040;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-progress.animate {
+            width: var(--progress);
+        }
+
+        /* Project Card Styles */
+        .project-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+            border-color: #22c55e;
+        }
+
+        .project-btn {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .project-btn:hover {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(34, 197, 94, 0.3);
+        }
+
+        .tech-tags {
+            margin-bottom: 16px;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: #1a1a1a;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid #404040;
+            transform: translateY(50px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 30px 30px 20px;
+            border-bottom: 1px solid #404040;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.3;
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover {
+            color: #22c55e;
+        }
+
+        .modal-content {
+            padding: 30px;
+        }
+
+        .modal-section {
+            margin-bottom: 32px;
+        }
+
+        .modal-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-section h3 {
+            color: #22c55e;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-section p {
+            color: #d1d5db;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .modal-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-list li {
+            color: #d1d5db;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .modal-list li:before {
+            content: "→";
+            color: #22c55e;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .modal-tech .tag {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            font-size: 0.85rem;
+            padding: 6px 12px;
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            background: #22c55e;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Staggered animations for cards */
+        .card.fade-in {
+            transition-delay: 0ms;
+        }
+
+        .card.fade-in:nth-child(2) {
+            transition-delay: 100ms;
+        }
+
+        .card.fade-in:nth-child(3) {
+            transition-delay: 200ms;
+        }
+
+        .card.fade-in:nth-child(4) {
+            transition-delay: 300ms;
+        }
+
+        .card.fade-in:nth-child(5) {
+            transition-delay: 400ms;
+        }
+
+        .card.fade-in:nth-child(6) {
+            transition-delay: 500ms;
+        }
+
+        /* Section titles animation */
+        .section-title {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero section entrance animation */
+        .hero {
+            opacity: 0;
+            animation: heroFadeIn 1.5s ease forwards;
+        }
+
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero > .container > * {
+            opacity: 0;
+            animation: heroContentIn 1s ease forwards;
+        }
+
+        .hero img {
+            animation-delay: 0.3s;
+        }
+
+        .hero h1 {
+            animation-delay: 0.6s;
+        }
+
+        .hero .subtitle {
+            animation-delay: 0.9s;
+        }
+
+        .hero .summary {
+            animation-delay: 1.2s;
+        }
+
+        .hero div:last-child {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes heroContentIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         .tag {
             display: inline-block;
             background: #22c55e;
@@ -333,44 +734,34 @@
             font-weight: 500;
             transition: all 0.2s ease;
         }
-
-        .tag::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.8s ease;
-        }
-
+        
         .tag:hover {
             background: #16a34a;
             transform: translateY(-2px);
         }
-
-        .tag:hover::before {
-            left: 100%;
-        }
-
+        
         .skill-tag {
             background-color: #2563eb;
             color: white;
         }
-
+        
+        .skill-tag:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
         .list {
             list-style: none;
             padding-left: 0;
         }
-
+        
         .list li {
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
             color: #d1d5db;
         }
-
+        
         .list li:before {
             content: "•";
             color: #22c55e;
@@ -378,47 +769,21 @@
             position: absolute;
             left: 0;
         }
-
+        
         .bg-alt {
             background: #1f1f1f;
             border-top: 1px solid #404040;
             border-bottom: 1px solid #404040;
-            position: relative;
         }
-
-        .bg-alt::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 25% 25%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(52, 211, 153, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
+        
         .footer {
             background: #1a1a1a;
             color: #a1a1aa;
             text-align: center;
             padding: 60px 0;
             border-top: 1px solid #404040;
-            position: relative;
         }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
+        
         .footer p {
             margin: 0;
             font-size: 1.1rem;
@@ -427,66 +792,96 @@
             position: relative;
             z-index: 1;
         }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1199px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+        }
 
         @media (max-width: 768px) {
             .hero {
                 padding: 80px 0;
             }
-
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
-
+            
             .hero .subtitle {
                 font-size: 1.3rem;
             }
-
+            
             .hero .summary {
                 font-size: 1.1rem;
                 margin: 0 auto 30px;
             }
-
+            
             .section-title {
                 font-size: 2.2rem;
                 margin-bottom: 40px;
             }
-
+            
             .card {
                 padding: 30px 20px;
                 margin-bottom: 20px;
             }
-
+            
             .card-title {
                 font-size: 1.5rem;
             }
-
+            
             .card-subtitle {
                 font-size: 1.1rem;
             }
-
+            
             .grid-2,
             .grid-3 {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-
+            
             .contact-item {
                 display: block;
                 margin: 15px 0;
                 font-size: 1rem;
             }
-
+            
             .btn {
-                padding: 14px 30px;
-                font-size: 0.95rem;
+                padding: 16px 32px;
+                font-size: 1rem;
                 margin: 10px 5px;
+                min-height: 44px;
+                min-width: 44px;
             }
-
+            
             .profile-img {
                 width: 140px;
                 height: 140px;
             }
-
+            
             .section {
                 padding: 60px 0;
             }
@@ -499,17 +894,20 @@
         <div class="container">
             <img src="/assets/profile.jpg" alt="Omar Alabdalla" class="profile-img">
             <h1>Omar Alabdalla</h1>
-            <p class="subtitle">MSc Data Science & AI | Computer Science Engineer</p>
+            <p class="subtitle">
+                <span id="typing-text">MSc Data Science & AI</span>
+                <span class="cursor">|</span>
+            </p>
             <p class="summary">Accomplished Computer Science and Engineering graduate pursuing advanced studies in Data Science and AI at Chalmers University of Technology. Demonstrated expertise in software development, machine learning, and educational leadership with 9+ years of professional experience across multiple sectors.</p>
             <div>
-                <a href="mailto:Omar.alabdalla87@yahoo.com" class="btn btn-primary">Contact Me</a>
+                <a href="mailto:omar.alabdalla87@yahoo.com" class="btn btn-primary">Contact Me</a>
                 <a href="https://www.linkedin.com/in/omar-alabdalla-4b5571148" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
             </div>
         </div>
     </section>
 
     <!-- Contact Info -->
-    <section class="contact-info">
+    <section class="contact-info slide-in-left">
         <div class="container">
             <div class="contact-item">📞 +46 704 80 25 32</div>
             <div class="contact-item">📧 omar.alabdalla87@yahoo.com</div>
@@ -522,7 +920,7 @@
         <div class="container">
             <h2 class="section-title">Education</h2>
             <div class="grid grid-2">
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Master of Science in Data Science and AI</h3>
                     <p class="card-subtitle">Chalmers University of Technology, Gothenburg</p>
                     <p class="card-meta">📅 August 2024 – Present (Expected graduation: June 2026)</p>
@@ -538,7 +936,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Bachelor of Science in Computer Science and Engineering</h3>
                     <p class="card-subtitle">Chalmers University of Technology, Gothenburg</p>
                     <p class="card-meta">📅 August 2021 - June 2024 | <strong>GPA: 4.4/5.0</strong></p>
@@ -560,11 +958,11 @@
     </section>
 
     <!-- Professional Experience Section -->
-    <section class="section bg-alt">
+    <section class="section">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">System Developer</h3>
                     <p class="card-subtitle">Chalmers University of Technology</p>
                     <p class="card-meta">📅 June 2025 - September 2025 | Gothenburg, Sweden</p>
@@ -584,7 +982,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Transport Officer</h3>
                     <p class="card-subtitle">Swedish Prison and Probation Service - National Transport Unit (NTE)</p>
                     <p class="card-meta">📅 Summer 2023 & 2024 | Gothenburg, Sweden</p>
@@ -604,7 +1002,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Mathematics Mentor</h3>
                     <p class="card-subtitle">Intize Educational Initiative</p>
                     <p class="card-meta">📅 October 2023 - June 2024 | Remote</p>
@@ -624,7 +1022,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Study Counselor & Native Language Instructor</h3>
                     <p class="card-subtitle">Ånge Municipality, Västernorrland County</p>
                     <p class="card-meta">📅 August 2015 – Present (9+ years) | Sweden</p>
@@ -655,71 +1053,69 @@
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="grid grid-3">
-                <div class="card">
+                <div class="card project-card fade-in" data-project="solar">
                     <h3 class="card-title">Automatic Sun Tracking Solution for Optimal Energy Production</h3>
                     <div class="card-content">
                         <p>Bachelor's Thesis project developing a dual-axis solar tracker system to automatically follow the sun for optimal photovoltaic energy production.</p>
-
+                        
                         <h4>Technologies:</h4>
-                        <div>
+                        <div class="tech-tags">
                             <span class="tag">Microcontroller Programming</span>
                             <span class="tag">Sensor Integration</span>
                             <span class="tag">Solar Energy Systems</span>
                             <span class="tag">System Calibration</span>
                         </div>
-
-                        <h4>Key Achievements:</h4>
-                        <ul class="list">
-                            <li>Designed system for precise horizontal and vertical adjustments to maximize sun exposure</li>
-                            <li>Improved energy efficiency through automated tracking</li>
-                            <li>Analyzed and compared energy output against stationary solar panels</li>
-                            <li>Addressed technical challenges related to sensor accuracy and microcontroller integration</li>
-                        </ul>
+                        
+                        <button class="project-btn" onclick="openModal('solar')">
+                            <span>View Details</span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card project-card fade-in" data-project="volvo">
                     <h3 class="card-title">Volvo Cars: Waste Data Visualization and Reporting Project</h3>
                     <div class="card-content">
                         <p>Collaborated with Volvo Cars on waste management optimization at Torslanda facility.</p>
-
+                        
                         <h4>Technologies:</h4>
-                        <div>
+                        <div class="tech-tags">
                             <span class="tag">Data Analysis</span>
                             <span class="tag">Data Visualization</span>
                             <span class="tag">KPI Development</span>
                             <span class="tag">Interactive Mapping</span>
                         </div>
-
-                        <h4>Key Achievements:</h4>
-                        <ul class="list">
-                            <li>Applied innovative visualizations to enhance sustainability practices</li>
-                            <li>Developed interactive maps for waste management</li>
-                            <li>Created targeted improvement reports</li>
-                            <li>Enhanced Key Performance Indicators (KPIs) for sustainability</li>
-                        </ul>
+                        
+                        <button class="project-btn" onclick="openModal('volvo')">
+                            <span>View Details</span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card project-card fade-in" data-project="security">
                     <h3 class="card-title">Security System Project</h3>
                     <div class="card-content">
                         <p>Developed a comprehensive security system using MD-407 microcontrollers connected via Controller Area Network (CAN-bus).</p>
-
+                        
                         <h4>Technologies:</h4>
-                        <div>
+                        <div class="tech-tags">
                             <span class="tag">Microcontroller Programming</span>
                             <span class="tag">CAN-bus Protocol</span>
                             <span class="tag">Network Communication</span>
                             <span class="tag">Security Systems</span>
                         </div>
-
-                        <h4>Key Achievements:</h4>
-                        <ul class="list">
-                            <li>Designed central unit and multiple peripherals</li>
-                            <li>Demonstrated proficiency in microcontroller-based device communication</li>
-                            <li>Created effective security and locking mechanism</li>
-                        </ul>
+                        
+                        <button class="project-btn" onclick="openModal('security')">
+                            <span>View Details</span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -727,31 +1123,220 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section bg-alt">
+    <section class="section">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
-            <div class="grid grid-2">
-                <div class="card">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 30px;">
+                <div class="card fade-in">
                     <h3 class="card-title">Programming Languages</h3>
                     <div class="card-content">
-                        <span class="tag skill-tag">Python</span>
-                        <span class="tag skill-tag">Java</span>
-                        <span class="tag skill-tag">C</span>
-                        <span class="tag skill-tag">C#</span>
-                        <span class="tag skill-tag">C++</span>
-                        <span class="tag skill-tag">VHDL</span>
-                        <span class="tag skill-tag">Assembly</span>
-                        <span class="tag skill-tag">Matlab</span>
-                        <span class="tag skill-tag">Haskell</span>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Matlab</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">C</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">C++</span>
+                                <span class="skill-percent">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">C#</span>
+                                <span class="skill-percent">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="60"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3 class="card-title">Tools & Technologies</h3>
+                <div class="card fade-in">
+                    <h3 class="card-title">Data Science & AI</h3>
                     <div class="card-content">
-                        <span class="tag skill-tag">GitHub</span>
-                        <span class="tag skill-tag">Fusion 360</span>
-                        <span class="tag skill-tag">3D Printing</span>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Data Visualization</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Machine Learning</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Image Processing</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Mathematical Statistics</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Control Theory</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <h3 class="card-title">Development Tools</h3>
+                    <div class="card-content">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">VS Code</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">GitHub</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Cursor IDE</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Streamlit</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Replit</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <h3 class="card-title">Specialized Technologies</h3>
+                    <div class="card-content">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">OpenAI API</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Neo4j</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Claude/LightLLM</span>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Canvas LMS API</span>
+                                <span class="skill-percent">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">VHDL</span>
+                                <span class="skill-percent">55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="55"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -763,21 +1348,21 @@
         <div class="container">
             <h2 class="section-title">Languages</h2>
             <div class="grid grid-3">
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Swedish</h3>
                     <div class="card-content">
                         <p>Fluent in speaking, reading, and writing</p>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">English</h3>
                     <div class="card-content">
                         <p>Proficient in spoken and written communication</p>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Arabic</h3>
                     <div class="card-content">
                         <p>Native language, fluent in speaking and writing</p>
@@ -788,11 +1373,11 @@
     </section>
 
     <!-- References Section -->
-    <section class="section bg-alt">
+    <section class="section">
         <div class="container">
             <h2 class="section-title">References</h2>
             <div class="grid grid-3">
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">PhD Håkan Burden</h3>
                     <p class="card-subtitle">Chalmers University of Technology</p>
                     <div class="card-content">
@@ -801,7 +1386,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Paul Pakkala</h3>
                     <p class="card-subtitle">Rektor/Ånge Kommun</p>
                     <div class="card-content">
@@ -810,7 +1395,7 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card fade-in">
                     <h3 class="card-title">Katrinne Bylund</h3>
                     <p class="card-subtitle">Rektor Gnarps skola/Nordanstigs kommun</p>
                     <div class="card-content">
@@ -823,11 +1408,56 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer scale-in">
         <div class="container">
             <p>&copy; 2025 Omar Alabdalla. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Project Modals -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title"></h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-content" id="modal-content">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Omar Alabdalla",
+        "jobTitle": "MSc Data Science & AI Student",
+        "affiliation": {
+            "@type": "Organization",
+            "name": "Chalmers University of Technology"
+        },
+        "alumniOf": {
+            "@type": "Organization",
+            "name": "Chalmers University of Technology"
+        },
+        "email": "omar.alabdalla87@yahoo.com",
+        "url": "http://localhost:3000",
+        "image": "/assets/profile.jpg",
+        "sameAs": [
+            "https://www.linkedin.com/in/omar-alabdalla-4b5571148"
+        ],
+        "knowsAbout": [
+            "Data Science",
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Software Development",
+            "Python",
+            "Java",
+            "Solar Energy Systems"
+        ]
+    }
+    </script>
 
     <script>
         // Add smooth scrolling for any future navigation links
@@ -840,22 +1470,253 @@
             });
         });
 
-        // Add loading animation for cards
-        const observer = new IntersectionObserver((entries) => {
+        // Enhanced scroll animations
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
+                    // Unobserve once animated
+                    scrollObserver.unobserve(entry.target);
                 }
             });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
 
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        // Observe all elements with animation classes
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .section-title').forEach(element => {
+            scrollObserver.observe(element);
+        });
+
+        // Typing animation for hero subtitle
+        const roles = [
+            "MSc Data Science & AI Student",
+            "Software Developer",
+            "Machine Learning Engineer", 
+            "Educational Leader",
+            "Computer Science Engineer",
+            "AI Research Enthusiast"
+        ];
+        
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+        
+        function typeRole() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentRole.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500; // Pause before next role
+            }
+            
+            setTimeout(typeRole, typeSpeed);
+        }
+        
+        // Start typing animation after a short delay
+        setTimeout(typeRole, 1000);
+
+        // Animate skill progress bars when they come into view
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target;
+                    const progress = progressBar.getAttribute('data-progress');
+                    
+                    // Set the CSS custom property for the width
+                    progressBar.style.setProperty('--progress', progress + '%');
+                    
+                    // Add animation class with a small delay for stagger effect
+                    setTimeout(() => {
+                        progressBar.classList.add('animate');
+                        progressBar.style.width = progress + '%';
+                    }, Math.random() * 300);
+                    
+                    // Stop observing this element
+                    skillObserver.unobserve(progressBar);
+                }
+            });
+        }, {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Observe all skill progress bars
+        document.querySelectorAll('.skill-progress').forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        // Project modal data
+        const projectData = {
+            solar: {
+                title: "Automatic Sun Tracking Solution for Optimal Energy Production",
+                description: "Bachelor's Thesis project developing a dual-axis solar tracker system to automatically follow the sun for optimal photovoltaic energy production.",
+                overview: "This project represents the culmination of my bachelor's studies, where I designed and implemented an innovative solar tracking system. The system automatically adjusts both horizontally and vertically to maintain optimal sun exposure throughout the day, significantly improving energy efficiency compared to stationary solar panels.",
+                technologies: ["Arduino Programming", "Servo Motors", "Light Sensors", "Microcontroller Integration", "Solar Panel Systems", "C/C++ Programming", "System Calibration", "Data Analysis"],
+                achievements: [
+                    "Designed precision dual-axis tracking mechanism with servo motor control",
+                    "Improved energy efficiency by 25-35% compared to stationary panels",
+                    "Implemented real-time light sensor feedback system for accurate positioning",
+                    "Developed robust calibration algorithm to handle varying weather conditions",
+                    "Created comprehensive testing framework with data logging capabilities",
+                    "Documented complete system architecture and implementation details"
+                ],
+                challenges: [
+                    "Overcame sensor accuracy issues in varying light conditions",
+                    "Optimized power consumption of tracking motors vs. energy gained",
+                    "Developed weather-resistant housing for outdoor deployment",
+                    "Implemented fail-safe mechanisms for extreme weather protection"
+                ],
+                results: "The final system demonstrated consistent 30% improvement in energy output during optimal conditions, with automated operation requiring minimal maintenance. The project received high marks and was recommended for presentation at the university's engineering showcase.",
+                links: [
+                    { text: "View Documentation", url: "#", icon: "📄" },
+                    { text: "Technical Specifications", url: "#", icon: "⚙️" }
+                ]
+            },
+            volvo: {
+                title: "Volvo Cars: Waste Data Visualization and Reporting Project",
+                description: "Collaborated with Volvo Cars on waste management optimization at Torslanda facility using advanced data visualization and KPI development.",
+                overview: "This industry collaboration project focused on enhancing Volvo's sustainability practices through innovative data visualization solutions. Working directly with Volvo's environmental team, I developed comprehensive reporting systems and interactive visualizations to optimize waste management processes at their Torslanda manufacturing facility.",
+                technologies: ["Python", "Data Analysis", "Interactive Dashboards", "Streamlit", "Pandas", "Plotly", "Geographic Mapping", "KPI Development", "SQL", "Data Processing"],
+                achievements: [
+                    "Created interactive waste management dashboard with real-time KPI tracking",
+                    "Developed geographic mapping system for facility-wide waste flow visualization",
+                    "Implemented automated reporting system reducing manual work by 60%",
+                    "Designed predictive analytics for waste generation patterns",
+                    "Built user-friendly interface for non-technical stakeholders",
+                    "Established baseline metrics for future sustainability improvements"
+                ],
+                challenges: [
+                    "Integrated multiple data sources with inconsistent formats",
+                    "Designed visualizations accessible to diverse stakeholder groups",
+                    "Ensured data privacy and security compliance with Volvo standards",
+                    "Created scalable solution for potential rollout to other facilities"
+                ],
+                results: "The project successfully provided Volvo with actionable insights into waste management efficiency, leading to identification of optimization opportunities worth significant environmental and cost savings. The solution is being considered for implementation across additional Volvo facilities.",
+                links: [
+                    { text: "Volvo Sustainability", url: "https://www.volvocars.com/intl/sustainability", icon: "🌱" },
+                    { text: "Project Summary", url: "#", icon: "📊" }
+                ]
+            },
+            security: {
+                title: "Security System Project",
+                description: "Developed a comprehensive security system using MD-407 microcontrollers connected via Controller Area Network (CAN-bus) protocol.",
+                overview: "This project demonstrates advanced microcontroller programming and network communication skills. I designed and implemented a distributed security system using multiple MD-407 microcontrollers communicating through CAN-bus protocol, creating a scalable and robust security solution.",
+                technologies: ["MD-407 Microcontrollers", "CAN-bus Protocol", "C Programming", "Network Communication", "Digital I/O", "Interrupt Handling", "Security Protocols", "System Architecture", "Hardware Integration"],
+                achievements: [
+                    "Designed distributed architecture with central control unit and peripheral sensors",
+                    "Implemented robust CAN-bus communication protocol between multiple nodes",
+                    "Created secure authentication system with encrypted message passing",
+                    "Developed modular design allowing easy addition of new security components",
+                    "Built comprehensive testing framework for system validation",
+                    "Implemented fail-safe mechanisms ensuring system reliability"
+                ],
+                challenges: [
+                    "Optimized CAN-bus message priorities for real-time security responses",
+                    "Handled network collision detection and message retry mechanisms",
+                    "Implemented power-efficient operation for battery-powered sensors",
+                    "Ensured system stability during network node failures"
+                ],
+                results: "The completed system successfully demonstrated reliable multi-node communication with sub-second response times for security events. The modular architecture allows for easy expansion and has been praised for its professional implementation of industry-standard protocols.",
+                links: [
+                    { text: "CAN Protocol Documentation", url: "#", icon: "📡" },
+                    { text: "System Architecture", url: "#", icon: "🔧" }
+                ]
+            }
+        };
+
+        // Modal functions
+        function openModal(projectId) {
+            const modal = document.getElementById('modal-overlay');
+            const titleElement = document.getElementById('modal-title');
+            const contentElement = document.getElementById('modal-content');
+            
+            const project = projectData[projectId];
+            if (!project) return;
+
+            titleElement.textContent = project.title;
+            
+            contentElement.innerHTML = `
+                <div class="modal-section">
+                    <h3>🎯 Project Overview</h3>
+                    <p>${project.overview}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>💻 Technologies Used</h3>
+                    <div class="modal-tech">
+                        ${project.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🏆 Key Achievements</h3>
+                    <ul class="modal-list">
+                        ${project.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>⚡ Technical Challenges</h3>
+                    <ul class="modal-list">
+                        ${project.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3>📈 Results & Impact</h3>
+                    <p>${project.results}</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🔗 Project Links</h3>
+                    <div class="modal-links">
+                        ${project.links.map(link => `
+                            <a href="${link.url}" class="modal-link" target="_blank">
+                                <span>${link.icon}</span>
+                                <span>${link.text}</span>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.classList.contains('modal-close')) {
+                return;
+            }
+            
+            const modal = document.getElementById('modal-overlay');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
         });
     </script>
 </body>
-</html><!-- Cache buster: 1755118158 -->
+</html><!-- Cache buster: 1755126000 -->
